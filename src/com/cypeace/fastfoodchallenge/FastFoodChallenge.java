@@ -1,6 +1,6 @@
 package com.cypeace.fastfoodchallenge;
 
-public class Main {
+public class FastFoodChallenge {
     public static void main(String[] args) {
 
         Item cola = new Item("drink", "cola", "regular", 1.50);
