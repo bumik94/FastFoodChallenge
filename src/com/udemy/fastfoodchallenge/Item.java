@@ -1,4 +1,4 @@
-package com.cypeace.fastfoodchallenge;
+package com.udemy.fastfoodchallenge;
 
 public class Item {
 

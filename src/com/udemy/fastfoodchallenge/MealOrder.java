@@ -1,4 +1,4 @@
-package com.cypeace.fastfoodchallenge;
+package com.udemy.fastfoodchallenge;
 
 import java.util.Scanner;
 
@@ -47,7 +47,7 @@ public class MealOrder {
             System.out.printf("Would you like any extra? %d/3 %n",  extraSlot);
             for (Item topping : toppings) {
                 System.out.printf("%d. %s $%.2f %n", enumerator++, topping.getName(), topping.getPrice());
-            };
+            }
             System.out.printf("%d. none %n", enumerator);
 
             // input function
