@@ -14,14 +14,17 @@ public class Item {
         this.price = price;
     }
 
+    public Item(String type, String name, double price) {
+        this.type = type;
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
 
     public double getPrice() {
-        if (type.equalsIgnoreCase("drink")) {
-            return getAdjustedPrice();
-        }
         return price;
     }
 
@@ -37,8 +40,16 @@ public class Item {
         this.price = price;
     }
 
+    public void setSize(String size) {
+        this.size = size;
+        setPrice(getAdjustedPrice());
+    }
+
     public void printItem() {
-        System.out.printf("%s%n %s%n %s%n $%.2f%n", type, name, size, getAdjustedPrice());
+        if (type != null) { System.out.println(type); }
+        if (name != null) { System.out.println("\t" + name); }
+        if (size != null) { System.out.println("\t" + size); }
+        if (price != 0) { System.out.println("\t$" + price); }
     }
 }
 
@@ -50,6 +61,10 @@ class Burger extends Item {
 
     public Burger(String type, String name, String size, double price) {
         super(type, name, size, price);
+    }
+
+    public Burger(String type, String name, double price) {
+        super(type, name, price);
     }
 
     public void setExtra1(Item extra1) {
@@ -87,13 +102,15 @@ class Burger extends Item {
     public void printItem() {
         super.printItem();
         try {
+            // When no extra is assigned, NullPointerException is raised
+            // and calling procedure is skipped
             if (extra1 != null) {
-                System.out.print(" extra: ");
+                System.out.print("\textra: ");
             }
             System.out.print(extra1.getName());
             System.out.print(", " + extra2.getName());
             System.out.print(", " + extra3.getName());
-            System.out.println();
-        } catch (Exception NullPointerException) {  }   // skip println
+        } catch (Exception NullPointerException) {  }   // skip print
+        System.out.println();
     }
 }

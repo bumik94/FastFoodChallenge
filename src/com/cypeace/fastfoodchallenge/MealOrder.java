@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class MealOrder {
 
-    private Item side;
-    private Item drink;
-    private Burger burger;
+    final private Item side;
+    final private Item drink;
+    final private Burger burger;
 
-    static Item cheese = new Item("topping", "cheese", "portion", 1.5);
-    static Item salad = new Item("topping", "salad", "portion", 1.0);
-    static Item sauce = new Item("topping", "sauce", "portion", 0.5);
-    static Item chilli = new Item("topping", "chilli", "portion", 2.0);
+    static Item cheese = new Item("topping", "cheese", 1.5);
+    static Item salad = new Item("topping", "salad", 1.0);
+    static Item sauce = new Item("topping", "sauce", 0.5);
+    static Item chilli = new Item("topping", "chilli", 2.0);
     static Item[] toppings = {cheese, salad, sauce, chilli};
     static Scanner s = new Scanner(System.in);
 
@@ -66,16 +66,33 @@ public class MealOrder {
     }
 
     public void setDrinkSize() {
-        for(;;) {
+        for(int selection;;) {
             try {
+                // Prompt
                 System.out.println("""
                         What size of the drink would you like?
-                        1. regular
-                        2. large
-                        """);
-                // input
-                int selection;
-            } catch (Exception e) {}
+                        1. small
+                        2. large""");
+                // input selection in range of prompt
+                selection = Integer.parseInt(s.nextLine());
+                if (selection > 0 && selection <= 2) {
+                    switch (selection) {
+                        case 1 -> this.drink.setSize("small");
+                        case 2 -> this.drink.setSize("large");
+                    }
+                    break;
+                }
+            } catch (Exception e) { continue; }
         }
+    }
+
+    public void printTotal() {
+        // Sum prices of drink, side and burger
+        // and print total
+        System.out.println("side $" + side.getPrice());
+        System.out.println("drink $" + drink.getPrice());
+        System.out.println("burger $" + burger.getPrice());
+        double total = (side.getPrice() + drink.getPrice() + burger.getPrice());
+        System.out.println("Total: $" + total);
     }
 }
