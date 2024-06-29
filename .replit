@@ -1,2 +1,2 @@
-run = "javac src/com/cypeace/fastfoodchallenge/*.java && java -cp src com/cypeace/fastfoodchallenge/FastFoodChallenge"
+run = "javac src/com/udemy/fastfoodchallenge/*.java && java -cp src com/udemy/fastfoodchallenge/FastFoodChallenge"
 modules = ["java-graalvm22.3"]
