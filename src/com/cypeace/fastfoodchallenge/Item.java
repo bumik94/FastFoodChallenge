@@ -73,15 +73,11 @@ class Burger extends Item {
                 super.setPrice(super.getPrice() + topping.getPrice());
         }
             case 2 -> {
-                // Assign topping
                 setExtra2(topping);
-                // Adjust price
                 super.setPrice(super.getPrice() + topping.getPrice());
             }
             case 3 -> {
-                // Assign topping
                 setExtra3(topping);
-                // Adjust price
                 super.setPrice(super.getPrice() + topping.getPrice());
             }
         }
