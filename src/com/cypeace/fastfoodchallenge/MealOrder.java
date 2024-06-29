@@ -1,3 +1,5 @@
+package com.cypeace.fastfoodchallenge;
+
 import java.util.Scanner;
 
 public class MealOrder {

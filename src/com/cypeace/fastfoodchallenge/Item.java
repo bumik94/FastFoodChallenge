@@ -1,5 +1,4 @@
-import java.sql.Array;
-import java.util.Scanner;
+package com.cypeace.fastfoodchallenge;
 
 public class Item {
 
